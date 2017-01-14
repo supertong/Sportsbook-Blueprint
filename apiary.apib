@@ -1,0 +1,208 @@
+FORMAT: 1A
+HOST: http://13.54.170.162/
+
+# SportsBook
+
+Sportsbook Mock API
+
+# Group Venues
+Court venues
+
+## Venue Collection [/api/venues{?suburb}{?state}{?country}{?distance}{?per_page}{?page}]
+
+### Search venues [GET]
+
+You can search venues base on location and distance.
+
++ Parameters
+    + suburb: Campise (string) - The suburb to search
+    + state: NSW (string) - The state to search
+    + country: AU (string) - The country to search
+    + distance: 200 (number) - The distance to search
+    + per_page: 8 (number) - Result per page
+    + page: 1 (number) - The page of result to return
+
++ Response 200 (application/json)
+
+        {
+          "total_pages": 1,
+          "venues": [
+            {
+              "id": 208,
+              "name": "lovely table tennis club",
+              "description": "good one",
+              "phone": "02 3322 2233",
+              "website": "example.com",
+              "photos": [
+                "https://s3-ap-southeast-2.amazonaws.com/sportsbook-test-photos/tennis-courts-ot-sloan.jpg",
+                "https://s3-ap-southeast-2.amazonaws.com/sportsbook-test-photos/90d5711f9c55270374d6f401bb1f0f60.jpg"
+              ],
+              "address": {
+                "unit_number": "2",
+                "street_number": "3",
+                "street_name": "test",
+                "suburb": "Test",
+                "postcode": "9999",
+                "latitude": "11.1111",
+                "longitude": "22.2222",
+                "country": "Australia",
+                "state": "Test"
+              }
+            }
+          ]
+        }
+
+### Create a New Venue [POST]
+
+You may create a new venue by providing details of a venue.
+
++ Request (application/json)
+
+        {
+            "venue": {
+                "name": "Venue name",
+                "description": "Venue description",
+                "website": "Optional venue website",
+                "phone": "Optional venue phone"
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "id": 214,
+                "name": "test",
+                "description": "test",
+                "phone": "02 3333 2222",
+                "website": "example.com",
+                "photos": [
+                
+                ],
+                "courts": [
+                
+                ]
+            }
+
+## Venue [/api/venues/{id}]
+
++ Parameters
+    + id: 210 (number) - The venue id
+
+
+### Show a Venue [GET]
+
+You can query a venue's information
+    
++ Response 200 (application/json)
+
+        {
+          "id": 210,
+          "name": "lovely table tennis club",
+          "description": "good one",
+          "phone": "02 3322 2233",
+          "website": "example.com",
+          "photos": [
+            "https://s3-ap-southeast-2.amazonaws.com/sportsbook-test-photos/tennis-courts-ot-sloan.jpg",
+                "https://s3-ap-southeast-2.amazonaws.com/sportsbook-test-photos/90d5711f9c55270374d6f401bb1f0f60.jpg"
+          ],
+          "address": {
+            "unit_number": "2",
+            "street_number": "3",
+            "street_name": "test",
+            "suburb": "Test",
+            "postcode": "9999",
+            "latitude": "11.1111",
+            "longitude": "22.2222",
+            "country": "Australia",
+            "state": "Test"
+          },
+          "courts": [
+            {
+              "id": 517,
+              "name": "court 1",
+              "description": "i am a court",
+              "sport_type": "tennis",
+              "timetable": [
+        
+              ]
+            },
+            {
+              "id": 518,
+              "name": "court 2",
+              "description": "i am a court",
+              "sport_type": "tennis",
+              "timetable": [
+        
+              ]
+            },
+            {
+              "id": 519,
+              "name": "court 3",
+              "description": "i am a court",
+              "sport_type": "tennis",
+              "timetable": [
+        
+              ]
+            }
+          ]
+        }
+        
+### Update a Venue [PUT]
+
+You can update a venue's information
+
++ Request (application/json)
+
+        {
+            "venue": {
+                "name": "Venue name",
+                "description": "Venue description",
+                "website": "Optional venue website",
+                "phone": "Optional venue phone"
+            }
+        }
+        
++ Response 400 (application/json)
+
+        {
+            "error: "bad request"
+        }
+        
++ Response 200 (application/json)
+
+        {
+          "id": 216,
+          "name": "test",
+          "description": "test",
+          "website": "example.com",
+          "phone": "02 3333 2222",
+          "photos": [
+        
+          ],
+          "address": {
+            "unit_number": "2",
+            "street_number": "3",
+            "street_name": "test",
+            "suburb": "Test",
+            "postcode": "9999",
+            "latitude": "11.1111",
+            "longitude": "22.2222",
+            "country": "Australia",
+            "state": "Test"
+          },
+          "courts": [
+        
+          ]
+        }
+    
+# Group Bookings
+
+## singla bookings
+
+### create a booking [POST]
