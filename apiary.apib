@@ -203,8 +203,33 @@ You can update a venue's information
     
 # Group Bookings
 
-## Single bookings [/api/
+## Collection [/api/bookings]
 
 ### create a booking [POST]
 
-### show a booking [GET]
++ Request (application/json)
+
+        {
+            "booking": {
+                "payment": {
+                    "stripe_token": 'xxx',
+                    "amount": 20,
+                    "venue_id": 33,
+                    "user_id": 2
+                },
+                "sessions": [{
+                    "court_id": 3,
+                    "time": [20, 21],
+                    "date": "2017-03-02",
+                },
+                {
+                   "court_id": 3,
+                    "time": [17, 18],
+                    "date": "2017-03-03",
+                }]
+            }
+        }
+        
++ Response 201 (application/json)
+
+        {}
