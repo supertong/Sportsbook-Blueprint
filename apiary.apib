@@ -233,4 +233,45 @@ You can update a venue's information
         
 + Response 201 (application/json)
 
-        {}
+        
+# Group Auth
+
+## Collection [/auth/{provider}{?auth_origin_url}]
+
+### Auth with Third Party [GET]
+
++ Parameters
+    + provider: google_oauth2 (enum[string], required) - The Provider type
+    
+        Third Party Provider
+        
+        + Members
+            + facebook
+            + google_oauth2
+    
+    + auth_origin_url: sportsbook:// (string, required) - The return URL
+
++ Response 302
+
+    + Headers
+    
+            Location: https://accounts.google.com/o/oauth2/v2/auth
+            
+## Collection [/auth/{provider}/callback]
+
+### Callback from Third Party [GET]
+
++ Parameters
+    + provider: google_oauth2 (enum[string], required) - The Provider type
+    
+        Third Party Provider
+        
+        + Members
+            + facebook
+            + google_oauth2
+    
++ Response 302
+
+    + Headers
+    
+            Location: sportsbook://
