@@ -240,7 +240,7 @@ You can query a venue's information
           ]
         }
         
-### Update a Venue [PUT]
+### Update a Venue [PATCH]
 
 You can update a venue's information
 
@@ -330,7 +330,7 @@ You can update a venue's information
 
 + Response 200 (application/json)
     
-### Update [PUT]
+### Update [PATCH]
 
 + Request (appplication/json)
 
@@ -355,7 +355,7 @@ You can update a venue's information
 + Parameters
     + venue_id: 10 (number) - The venue id
 
-### create a court [POST]
+### create [POST]
 
 + Request (application/json)
 
@@ -369,12 +369,38 @@ You can update a venue's information
         }
         
 + Response 201 (application/json)
+
+## Member [/api/venues/{venue_id}/courts/{id}]
+
++ Parameters
+    + venue_id: 10 (number) - The venue id
+    + id: 33 (number) - The court id
+
+### update [PATCH]
+
++ Request (application/json)
+
+        {
+            "court": {
+                name: "changed court name"
+            }
+        }
+        
     
++ Response 200 (application/json)
+
+
+### delete [DELETE]
+
++ Request (application/json)
+
++ Response 200 (application/json)
+  
 # Group Bookings
 
 ## Collection [/api/bookings]
 
-### create a booking [POST]
+### create [POST]
 
 + Request (application/json)
 
