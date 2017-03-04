@@ -347,6 +347,28 @@ You can update a venue's information
 + Request (application/json)
 
 + Response 200 (application/json)
+
+# Group Court
+
+## Collection [/api/venues/{venue_id}/courts/]
+
++ Parameters
+    + venue_id: 10 (number) - The venue id
+
+### create a court [POST]
+
++ Request (application/json)
+
+        {
+            "court": {
+                "name": "i am a court",
+                "description": "I am not just a court",
+                "sport_type": "tennis",
+                "court_price_rule_id": 10
+            }
+        }
+        
++ Response 201 (application/json)
     
 # Group Bookings
 
