@@ -288,6 +288,9 @@ You can update a venue's information
           ]
         }
         
+        
+# Group Court Price Rule
+
 ## Court Price Rule Collection [/api/venues/{venue_id}/court_price_rules]
 
 + Parameters
@@ -314,6 +317,24 @@ You can update a venue's information
         }
     
 + Response 201 (application/json)
+
+## Court Price Rule Member [/api/venues/{venue_id}/court_price_rules/{id}]  
+
++ Parameters
+    + venue_id: 10 (number) - The venue id
+    + id: 99 (number) - The court price rule id
+    
+### Update a court price rule [POST]
+
++ Request (appplication/json)
+
+        {
+            "court_price_rule": {
+                "name": "updated name"
+            }
+        }
+    
++ Response 200 (application/json)
     
 # Group Bookings
 
