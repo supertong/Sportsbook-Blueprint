@@ -8,7 +8,7 @@ Sportsbook Mock API
 # Group Venue
 Court venues
 
-## Collection [/api/venues{?suburb}{?state}{?country}{?distance}{?per_page}{?page}]
+## Search [/api/venues{?suburb}{?state}{?country}{?distance}{?per_page}{?page}]
 
 ### Search venues [GET]
 
@@ -48,6 +48,39 @@ You can search venues base on location and distance.
                 "country": "Australia",
                 "state": "Test"
               }
+            }
+          ]
+        }
+        
+## List managed venues [/api/my/venues]
+
+### get venues [GET]
+
+Venue admins get a list of managed venues
+
++ Response 200 (application/json)
+
+        {
+          "my_venues": [
+            {
+              "address": {
+                "country": "Australia",
+                "latitude": "11.1111",
+                "longitude": "22.2222",
+                "postcode": "9999",
+                "state": "Test",
+                "street_name": "test",
+                "street_number": "3",
+                "suburb": "Test",
+                "unit_number": "2"
+              },
+              "description": "good one",
+              "name": "lovely table tennis club",
+              "phone": "02 3322 2233",
+              "photos": [
+
+              ],
+              "website": "example.com"
             }
           ]
         }
